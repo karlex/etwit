@@ -1,0 +1,37 @@
+//- общая обёртка для основной части страницы
+div.wrapper.auth
+  div.page-auth
+    div.logo
+      img(src="/img/logo.png", alt="Enaza", title="Enaza")
+    div.quote-holder
+      div.quote У вас есть только один способ убедить других &ndash; выслушать их
+      div.author Дж. Вашингтон
+    form(ng-controller="LoginController as login", ng-submit="login()", onsubmit="return false;").auth
+      input(type="text", placeholder="Эл. почта или LDAP-логин", ng-model="username").email
+      input(type="password", placeholder="Пароль", ng-model="password").password
+      div.submit-holder
+        input(type="submit", value="Войти").submit
+        div.remember-holder
+          input(type="checkbox", id="checkbox-remember", ng-model="remember")
+          label(for="checkbox-remember") Запомнить
+    div.forgot-holder
+      a(data-remodal-target-id="forgot-password", href="#") Забыли пароль?
+
+// Модальные окна
+div.remodal-bg
+  div(data-remodal-id="forgot-password", data-remodal-options="hashTracking: false").remodal
+    h1 Восстановление пароля
+    p Тестовый аккаунт: apushkin/pass4test, sesenin/pass4test
+    a(href="#").remodal-confirm ОК!
+
+div.remodal-bg
+  div(data-remodal-id="auth-error-400", data-remodal-options="hashTracking: false").remodal
+    h1 Ошибка входа
+    p Введите логин и пароль
+    a(href="#").remodal-confirm ОК!
+
+div.remodal-bg
+  div(data-remodal-id="auth-error-401", data-remodal-options="hashTracking: false").remodal
+    h1 Ошибка входа
+    p Неправильный логин или пароль
+    a(href="#").remodal-confirm ОК!

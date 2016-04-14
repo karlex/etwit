@@ -1,0 +1,73 @@
+.page-auth {
+	margin-top: 65px
+	
+	.logo {
+		height: 27px
+		margin-bottom: 72px
+		text-align: center
+	}
+	
+	.quote-holder {
+		color: #666
+		font-size: 20px
+		font-weight: 300
+		margin-bottom: 70px
+		
+		.quote {
+			margin-bottom: 22px
+			quotes: "«" "»";
+			
+			&:before {
+				content: open-quote;
+			}
+
+			&:after {
+				content: close-quote;
+			}
+		}
+		.author {
+			text-align: right
+		}
+	}
+	
+	form.auth {
+		margin-bottom: 35px
+
+		input.email, input.password, input.submit {
+			border: 1px solid #ccc
+			border-radius: 5px
+			font-size: 18px
+			height: 45px
+			padding: 8px 12px
+			width: 100%
+
+			&.email {
+				margin-bottom: 25px
+			}
+			
+			&.password {
+				margin-bottom: 30px
+			}
+			
+			&.submit {
+				// background-color: mainColor
+				// color: #fff
+				width: 195px
+			}
+		}
+		
+		.submit-holder {
+			vertical-align: middle
+			
+			.remember-holder {
+				float: right
+				line-height: 45px
+			}
+		}
+	}
+	
+	.forgot-password {
+		font-size: 16px
+		font-weight: 500
+	}
+}

@@ -1,0 +1,47 @@
+header
+  div.header-holder.wrapper
+    //- информация об авторизованном пользователе
+    div.user-holder
+      div(data-remodal-target-id="avatar", g-click="showAvatarModal()").avatar
+        img(ng-src="{{user.avatar || '//www.gravatar.com/avatar/6408ae50321df942bac43900db9a34d9?s=80'}}")
+      div.user-info
+        div.name
+          div.last {{user.surname}}
+            //- span.badge-info
+              a(href="/user/{{user.id}}") 1
+          div.first {{user.first_name}}
+        p.email {{user.email}}
+          span(ng-click="logout()").exit (выйти)
+    div.menu-holder
+      ul
+        li.tweet
+          a(data-remodal-target-id="write-twit", g-click="showSendForm()")
+            img(src="/img/icon-write.svg")
+        li
+          a(ng-href="/", ng-class="{active: active=='lent'}") Лента
+        li
+          a(ng-href="/team", ng-class="{active: active=='team'}") Коллеги
+        li
+          a(ng-href="/about", ng-class="{active: active=='about'}") О проекте
+    div.logo
+      img(src="/img/logo.png", alt="Enaza Twitting", title="Enaza Twitting")
+//- общая обёртка для основной части страницы
+div(ng-transclude).wrapper
+
+//- диалог для отправки твитов
+div.remodal-bg
+  div(data-remodal-id="write-twit", data-remodal-options="hashTracking: false").remodal
+    h1 Новое сообщение
+    send-twit-form
+
+div.remodal-bg
+  div(data-remodal-id="send-twit-error", data-remodal-options="hashTracking: false").remodal
+    h1 Ошибка
+    p В процессе отправки сообщения возникла ошибка
+    a(href="#").remodal-confirm ОК!
+
+div.remodal-bg
+  div(data-remodal-id="avatar", data-remodal-options="hashTracking: false").remodal
+    h1 Аватар
+    p Это ваш Аватар :) Чтобы его изменить - зарегистрируйтесь на сайте http://gravatar.com/, и загрузите свой аватар.
+    a(href="#").remodal-confirm ОК!

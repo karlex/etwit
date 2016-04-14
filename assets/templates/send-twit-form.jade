@@ -1,0 +1,13 @@
+form(ng-submit="send()").tweet-form
+  div.textarea-holder
+    textarea(
+    placeholder="Над чем вы сейчас работаете?",
+    ng-model="message",
+    ng-class="{'not-empty': message.length > 0}"
+    ctrl-enter="send()"
+    )
+  div.buttons-holder
+    span.anonymous
+      input(type="checkbox", name="anonymous", ng-model="anonymous")
+      label(for="checkbox-anonymous") Анонимно
+    input(type="submit", name="submit", value="Отправить")

@@ -1,0 +1,80 @@
+//- include ./spinner.jade
+menu-layout(active="lent")
+  div
+    //- боковая панель
+    div.sidebar
+      //- форма отправки твита
+      send-twit-form
+
+      //- тэги
+      //- чтобы свернуть - используй класс .collapsed
+      div(ng-controller="TagCloudController as tagCloud")
+        div(ng-class="{collapsed: collapsed}").tags
+          ul
+            li(ng-repeat="tag in tags")
+              span(ng-click="apply('#' + tag.tag)").tag {{'#' + tag.tag}}
+          span(ng-click="toggle()").switch {{collapsed ? 'Показать тэги' : 'Скрыть теги'}}
+
+      //- блок с пользователями
+      div(ng-controller="SidebarUsersController as sidebarUsers").users-holder
+        h3 Коллеги
+        form.search-form
+          div.search-holder
+            input(type="text", placeholder="Поиск по имени", ng-model="search")
+            input(type="submit", value="")
+        div.tabs
+          span(ng-class="{active: selected === 'all'}", ng-click="select('all')").tab Все
+          span(ng-class="{active: selected === 'online'}", ng-click="select('online')").tab Онлайн
+          span(ng-class="{active: selected === 'offline'}", ng-click="select('offline')").tab Оффлайн
+        ul.users
+          li(ng-repeat="user in users | filter:userFilter")
+            div(ng-click="twitUser(user.uid)").avatar
+              img(ng-src="{{user.avatar || '//www.gravatar.com/avatar/6408ae50321df942bac43900db9a34d9?s=55'}}", class="img-circle")
+              span(ng-class="{online: user.online == 1}")
+            p.name
+              a(href="#")
+                span.last {{user.surname}}
+                span.first {{user.first_name}}
+
+    div.content
+      //- фильтры для ленты (может быть хэш-тэг или адресованное сообщени)
+      ul(ng-show="tags.length > 0").feed-filters
+        li(ng-repeat="tag in tags")
+          span.tag {{tag}}
+          span(ng-click="removeTag($index)").remove
+
+      //- табы для ленты
+      ul.feed-tabs
+        li(ng-class="{active: selectedFeedTab === 'all'}")
+          a(ng-href="/").link Общая лента
+        li(title="Лента проектов временно недоступна").disabled Лента проектов
+        li(ng-class="{active: selectedFeedTab === 'answers'}")
+          a(ng-href="/answers").link Ответы
+
+      //- держатель для ленты
+      div.feed-holder
+        //- предупреждения и уведомления в ленте сообщений
+        div(ng-show="newTwits.length > 0").feed-notification
+          span(ng-click="showNew()").label Показать {{newTwits.length}} новых сообщения
+        //- непосредственно лента твитов
+        ul(infinite-scroll="nextPage()", infinite-scroll-distance="1").feed
+          li(ng-show="!busy && twits.length <= 0")
+            h3 По вашему запросу твиты не найдены :( Зайдите чуточку позже!
+          //- один твит
+          li(ng-repeat="twit in twits", ng-class="{negative: twit.rating < 0}").tweet
+            div(ng-switch="twit.author").user-info
+              img(ng-switch-when="null", ng-src="{{'//www.gravatar.com/avatar/6408ae50321df942bac43900db9a34d9?s=80'}}", class="img-circle")
+              a(ng-switch-default, ng-click="filterTag('@' + twit.author.uid)").avatar
+                img(ng-src="{{twit.author.avatar || '//www.gravatar.com/avatar/6408ae50321df942bac43900db9a34d9?s=80'}}", class="img-circle")
+              //-p.rating
+                span.vote.plus +
+                span(ng-class="twit.rating > 0 ? 'positive' : 'negative'").current {{twit.rating}}
+                span.vote.minus -
+            div.tweet-content
+              p.name
+                span(ng-click="filterTag('@' + twit.author.uid)").
+                  {{twit.author.first_name}} {{twit.author.surname}}
+                span.time {{twit.ts | fromNow}}
+              twit-message(message="twit.message").text
+              div(ng-repeat="img in twit.imgs")
+                img(ng-src="{{img.path}}")

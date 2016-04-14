@@ -1,0 +1,271 @@
+.feed-filters {
+	list-style: none
+	margin: 0 0 15px 0
+	padding: 0
+
+	li {
+		display: inline-block
+		margin: 0 10px 10px 0
+		max-width: 100%
+		position: relative
+		word-wrap: break-word
+
+		&:hover {
+			span.remove {
+				display: block
+			}
+		}
+
+		.tag {
+			background: #d6d6d6
+			border-radius: 5px
+			color: #666
+			display: block
+			font-weight: 500
+			padding: 4px 12px
+			text-decoration: none
+		}
+
+		span.remove {
+			background: url('/img/icon-x.svg') #999 50% 50% no-repeat
+			background-size: 9px 9px
+			border-radius: 100%
+			color: #fff
+			cursor: pointer
+			display: none
+			height: 19px
+			line-height: 19px
+			position: absolute
+			text-align: center
+			top: -9px
+			right: -8px
+			width: 19px
+		}
+	}
+}
+
+.feed-tabs {
+	list-style: none
+	margin: 0
+	padding: 0
+
+	// Пока что рассчитано только на 3 таба
+	li {
+		background-color: #d5e0e9
+		border-radius: 5px 5px 0 0
+		color: mainColor
+		cursor: pointer
+		display: inline-block
+		height: 45px
+		line-height: 45px
+		margin-right: .3%
+		text-align: center
+		white-space: nowrap
+		width: 33%
+
+        .link {
+            display: block
+            width: 100%
+            height: 100%
+        }
+
+		&.active {
+			background-color: #fff
+		}
+		
+		&.disabled {
+			color: #999
+			cursor: not-allowed
+		}
+
+		&:last-child {
+			margin: 0
+			width: 33.4%
+		}
+	}
+}
+
+.feed-holder {
+	background: #fff
+	padding-top: 20px
+
+	.feed-notification {
+		background: #ecf3fe
+		font-size: 18px
+		margin: 0 20px
+		text-align: center
+
+		.label {
+			display: block
+			color: #f84642
+			padding: 10px 20px
+			cursor: pointer
+		}
+	}
+
+	.feed {
+		list-style: none
+		margin: 25px 20px 0 20px
+		padding: 0
+
+		.tweet {
+			border-bottom: 1px solid #ccc
+			font-size: 16px
+			margin: 15px 0 0
+			padding-bottom: 15px
+
+			&:hover {
+				.user-info {
+					.rating {
+						.vote {
+							display: inline-block
+						}
+					}
+				}
+			}
+
+			&.negative {
+				cursor: pointer
+
+				&.acitve {
+					cursor: default
+				}
+
+				.user-info {
+					a.avatar {
+						display: none
+					}
+				}
+
+				.tweet-content {
+					.text {
+						display: none
+					}
+				}
+			}
+
+			&:last-child {
+				border: 0;
+			}
+
+			.user-info {
+				display: inline-block
+				font-weight: 500
+				margin-right: 20px
+				overflow: hidden
+				text-align: center
+				vertical-align: top
+				width: 80px
+
+				a.avatar {
+					display: block
+					margin-bottom: 10px
+				}
+
+				.rating {
+					margin: 0
+					white-space: nowrap
+
+					.vote {
+						background-color: #ccc
+						border-radius: 100%
+						color: #fff
+						cursor: pointer
+						display: none
+						font-size: 15px
+						font-weight: 400
+						height: 16px
+						line-height: 16px
+						//margin: 4px
+						//padding: 2px
+						vertical-align: middle
+						width: 16px
+
+						&.plus {
+
+						}
+
+						&.minus {
+
+						}
+					}
+
+					.current {
+						font-weight: 500
+						padding: 0 4px
+
+						&.positive {
+							color: #29b741
+						}
+
+						&.negative {
+							color: mainColor
+						}
+					}
+
+				}
+			}
+
+			.tweet-content {
+				display: inline-block
+				font-weight: 500
+				vertical-align: top
+				width: 460px
+				word-wrap: break-word
+
+				.name {
+					font-size: 18px
+					font-weight: 300
+					margin-bottom: 15px
+					span {
+						cursor: pointer
+						color: mainColor
+					}
+
+					.time {
+						color: #666
+						font-size: 14px
+						margin-left: 10px
+					}
+
+				}
+
+				.text {
+					.highlight {
+						background-color: yellow
+					}
+
+					.private {
+						color: mainColor
+						cursor: pointer
+					}
+
+					.hash {
+						color: hashColor
+						cursor: pointer
+						
+					}
+
+					.img-holder {
+						//text-align: center
+						
+						img {
+							border: 1px solid transparent
+							border-radius: 5px
+							display: inline-block
+							max-height: 500px
+							max-width: 100%
+							
+							&[data-fullsize] {
+								border-color: mainColor + 75%
+								cursor: pointer
+							}
+						}
+					}
+				}
+			}
+
+		}
+	}
+
+}

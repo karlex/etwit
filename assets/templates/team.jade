@@ -1,0 +1,89 @@
+menu-layout(active="team")
+  div(ng-controller="TeamController as teamCtrl").page-team
+    div.team-holder
+      ul
+        li(ng-repeat="user in users")
+          div.basic
+            div.avatar-holder
+              img(ng-src="{{user.avatar || '//www.gravatar.com/avatar/6408ae50321df942bac43900db9a34d9?s=80'}}").img-circle
+            h5 {{user.first_name}} {{user.surname}}
+            p(ng-show="{{user.job}}").position {{user.job}}
+          div.detail
+            div.avatar-holder
+              img(ng-src="{{user.avatar || '//www.gravatar.com/avatar/6408ae50321df942bac43900db9a34d9?s=80'}}").img-circle
+            h5 {{user.first_name}} {{user.surname}}
+            p(ng-show="{{!!user.job}}").position {{user.job}}
+            p(ng-show="{{!!user.email}}").email
+              a(ng-href="mailto:{{user.email}}") {{user.email}}
+            p(ng-show="{{!!user.skype}}").skype
+              a(ng-href="skype:{{user.skype}}?chat")
+                span.icon {{user.skype}}
+            p(ng-show="{{!!user.phone}}").phone {{user.phone}}
+        //- li
+          div.basic
+            div.avatar-holder
+              img(src="http://www.gravatar.com/avatar/938a1f0d6dcbc1f8cc501cd1186e2a13?s=80").img-circle
+            h5 Гурьев Егор
+            p.position генеральный директор
+          div.detail
+            div.avatar-holder
+              img(src="http://www.gravatar.com/avatar/938a1f0d6dcbc1f8cc501cd1186e2a13?s=80").img-circle
+            h5 Гурьев Егор
+            p.position генеральный директор
+            p.email
+              a(href="mailto:e@enaza.ru") e@enaza.ru
+            p.skype
+              a(href="skype:egurjev?chat")
+                span.icon egurjev
+            p.phone +7 922 25 192 22
+        //- li
+          div.basic
+            div.avatar-holder
+              img(src="http://www.gravatar.com/avatar/48ebadb7eaf03f5b76d5a0b4badb39d9?s=80").img-circle
+            h5 Микушин Павел
+            p.position ведущий backend-разработчик
+          div.detail
+            div.avatar-holder
+              img(src="http://www.gravatar.com/avatar/48ebadb7eaf03f5b76d5a0b4badb39d9?s=80").img-circle
+            h5 Микушин Павел
+            p.position ведущий backend-разработчик
+            p.email
+              a(href="mailto:mikushin@enaza.ru") mikushin@enaza.ru
+            p.skype
+              a(href="skype:pavelmics?chat")
+                span.icon pavelmics
+            p.phone +7 951 65 921 11
+        //- li
+          div.basic
+            div.avatar-holder
+              img(src="http://www.gravatar.com/avatar/97756e563f6380a8956f27661a2b9849?s=80").img-circle
+            h5 Филиппов Максим
+            p.position ведущий frontend-разработчик
+          div.detail
+            div.avatar-holder
+              img(src="http://www.gravatar.com/avatar/97756e563f6380a8956f27661a2b9849?s=80").img-circle
+            h5 Филиппов Максим
+            p.position ведущий frontend-разработчик
+            p.email
+              a(href="mailto:m.filippov@enaza.ru") m.filippov@enaza.ru
+            p.skype
+              a(href="skype:mostaposta?chat")
+                span.icon mostaposta
+            p.phone +7 965 77 456 98
+        //- li
+          div.basic
+            div.avatar-holder
+              img(src="http://www.gravatar.com/avatar/747b62683f1253acc3fe350167829679?s=80").img-circle
+            h5 Лыков Алексей
+            p.position технический директор
+          div.detail
+            div.avatar-holder
+              img(src="http://www.gravatar.com/avatar/747b62683f1253acc3fe350167829679?s=80").img-circle
+            h5 Лыков Алексей
+            p.position технический директор
+            p.email
+              a(href="mailto:vasev@enaza.ru") lykovaleksey@playkey.net
+            p.skype
+              a(href="skype:lykovaleksey?chat")
+                span.icon lykovaleksey
+            p.phone +7 902 48 801 86

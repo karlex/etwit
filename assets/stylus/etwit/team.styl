@@ -1,0 +1,95 @@
+.page-team {
+	
+	.team-holder {
+	
+		ul {
+			list-style: none
+			margin: 0 0 0 -25px
+			padding: 0
+
+			li {
+				//border: 10px solid mainColor
+				display: inline-block
+				height: 165px
+				margin: 15px 0 30px 31px
+				padding: 25px 20px 0px
+				position: relative
+				text-align: center
+				vertical-align: top
+				width: 215px
+
+				&:hover, &:active, &:focus, &.active { // Реализовать добавление класса .active для тач-устройств, с помощью js
+					.basic {
+						display: none
+					}
+
+					.detail {
+						background: rgba(252, 252, 252, 0.9)
+						box-shadow: 0 0 10px 1px #ccc
+						display: block
+						padding: 25px 20px 5px
+						z-index: 1
+					}
+				}
+				
+				.basic {
+					display: block
+				}
+				
+				.detail {
+					display: none
+					left: 0
+					position: absolute
+					top: 0
+					width: 100%
+				}
+
+				.avatar-holder {
+					margin-bottom: 10px
+					img {
+
+					}
+				}
+				
+				h5 {
+					color: mainColor
+					font-size: 16px
+					font-weight: 500
+					margin: 0 0 5px 0
+					padding: 0
+				}
+				
+				p {
+					color: #666
+					font-size: 14px
+					font-weight: 300
+
+					&.position {
+						margin-bottom: 15px
+					}
+					
+					&.email {
+						font-weight: 500
+						margin-bottom: 5px
+						
+						a {
+							color: mainColor
+						}
+					}
+					
+					&.skype {
+						.icon {
+							background: url('/img/icon-skype.svg') transparent 0 0 no-repeat
+							background-size: 16px 16px
+							padding-left: 20px	
+						}
+					}
+					
+					&.phone {
+
+					}
+				}
+			}
+		}
+	}
+}

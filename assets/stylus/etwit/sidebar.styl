@@ -1,0 +1,207 @@
+.tweet-form {
+    textarea {
+        border: 1px solid #ccc
+        border-radius: 5px
+        display: block
+        font-size: 18px
+        height: 47px
+        padding: 10px 14px
+        transition: 0.5s
+        resize: none
+        width: 100%
+
+        &:focus, &.not-empty { // Почему-то не работает (:not(:empty)), реализовать с помощью JS
+            height: 120px
+        }
+    }
+
+    .buttons-holder {
+        margin-top: 20px
+        text-align: right
+
+        .anonymous {
+            color: #666
+            float: left
+            font-size: 16px
+            font-weight: 500
+            line-height: 45px
+        }
+    }
+}
+
+.sidebar {
+	.tags {
+		background-color: #fff
+		border-radius: 5px
+		font-size: 18px
+		font-weight: 300
+		line-height: 37px
+		margin: 30px 0
+
+		&.collapsed {
+			ul {
+				display: none
+			}
+
+			.switch {
+				background: #d5e0e9
+			}
+		}
+
+		ul {
+			list-style: none
+			margin: 0
+			padding: 20px 20px 10px
+
+			li {
+				display: inline-block
+				margin: 0 15px 0 0
+				max-width: 100%
+				word-wrap: break-word
+
+				.tag {
+					color: hashColor
+					cursor: pointer
+				}
+			}
+		}
+
+		.switch {
+			border-radius: 5px
+			display: block
+			color: #f84642
+			line-height: 50px
+			text-align: center
+			cursor: pointer
+		}
+	}
+
+	.users-holder {
+
+		h3 {
+			color: #333
+			font-size: 21px
+			font-weight: 300
+			margin: 0 0 20px 0
+			padding: 0
+		}
+
+		.search-form {
+			.search-holder {
+				position: relative
+				margin-bottom: 15px
+
+				input[type="text"] {
+					border: 1px solid #ccc
+					border-radius: 5px
+					display: block
+					font-size: 18px
+					height: 47px
+					padding: 10px 40px 10px 14px
+					transition: 0.5s
+					resize: none
+					width: 100%
+				}
+
+				input[type="submit"] {
+					background: url('/img/icon-search.svg') transparent 50% 50% no-repeat
+					border: 0
+					height: 22px
+					margin-top: -11px
+					position: absolute
+					right: 12px
+					top: 50%
+					width: 22px
+				}
+			}
+		}
+
+		.tabs {
+			margin-bottom: 15px
+
+			.tab {
+				cursor: pointer
+				border-radius: 5px
+				color: #666
+				display: inline-block
+				font-weight: 500
+				margin-right: 20px
+				padding: 8px 10px
+
+				&.active {
+					color: #fff
+					background-color: mainColor
+				}
+			}
+		}
+
+		.users {
+			list-style: none
+			margin: 0
+			padding: 0
+
+			li {
+				display: inline-block
+				margin: 0 0 10px 0
+				overflow: hidden
+				text-align: center
+				vertical-align: top
+				width: 80px
+
+				&:hover {
+					.name {
+						display: block
+					}
+
+					.avatar {
+						img {
+							border-color: hashColor
+						}
+					}
+				}
+
+				.avatar {
+					cursor: pointer
+					display: block
+					margin: 0 9px 5px
+					position: relative
+
+					img {
+						border-radius: 100%
+						border: 3px solid transparent
+					}
+
+					.online {
+						background-color: #7ac943
+						border-radius: 100%
+						display: block
+						height: 12px
+						position: absolute
+						right: 5px
+						bottom: 5px
+						width: 12px
+					}
+				}
+
+				.name {
+					display: none;
+					font-size: 14px
+					font-weight: 500
+					margin: 0
+					//visibility: hidden
+
+					a {
+						color: #333
+
+						span.last, span.first {
+							display: block
+							overflow: hidden
+							white-space: nowrap
+						}
+					}
+				}
+			}	
+		}
+		
+	}
+}

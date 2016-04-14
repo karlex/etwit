@@ -1,0 +1,106 @@
+fonts = 'MuseoSansCyrilic', helvetica, arial, sans-serif
+mainColor = #f84642
+hashColor = #498ef2
+
+body {
+  background: #e9eff4
+  font: 14px/1.4 fonts
+  font-weight: 300
+}
+
+a {
+	color: mainColor
+	text-decoration: none
+	cursor: pointer
+}
+
+p {
+	margin: 0 0 10px 0
+}
+
+img {
+	max-height: 450px;
+	max-width: 100%;
+	vertical-align: middle
+}
+
+.wrapper {
+	margin: 0 auto
+	width: 960px
+	
+	&.auth {
+		width: 355px
+	}
+}
+
+.sidebar {
+	display: inline-block
+	margin-right: 20px
+	overflow: hidden
+	vertical-align: top
+	width: 335px
+}
+
+.content {
+	display: inline-block
+	vertical-align: top
+	width: 605px
+}
+
+// Вспомогательные элементы
+// Чекбоксы
+input[type=checkbox] {
+	border: 0
+	clip: rect(0 0 0 0)
+	height: 1px
+	left: -1000px
+	margin: -1px
+	overflow: hidden
+	padding: 0
+	position: absolute
+	width: 1px
+	z-index:-1000
+
+	+ label {
+		background-repeat: no-repeat
+		background-position: 0 0
+		cursor: pointer
+		display: inline-block
+		font-size: 16px
+		font-weight: 300
+		height: 15px
+		line-height: 15px
+		padding-left: 20px
+		vertical-align: middle
+	}
+
+	&:checked + label {
+		background-position: 0 -15px
+	}
+}
+
+label {
+	background-image:url('/img/checkbox.png')
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+}
+
+// Красная кнопка (в большинстве случаев - submit)
+input[type='submit'] {
+	background: mainColor
+	border: 0
+	border-radius: 5px
+	color: #fff
+	font-size: 21px
+	height: 45px
+	width: 190px
+
+	&:disabled {
+		background-color: mainColor - 10%
+		opacity: 0.6
+	}
+}
